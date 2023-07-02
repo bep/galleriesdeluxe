@@ -1,0 +1,12 @@
+{{ with partial "galleriesdeluxe/get-gallery.html" . }}
+  {{ $gallery := partial "gallerydeluxe/init.html" (dict "images" .images) }}
+  {{ $params := site.Params.gallerydeluxe }}
+  <div id="gallerydeluxe" data-gd-image-data-url="{{ $gallery.imageDataUrl }}">
+    <div id="gd-modal" class="gd-modal">
+      <span id="gd-modal-close" class="gd-modal-close">&times;</span>
+      {{ if $params.enable_exif }}
+        <div id="gd-modal-exif" class="gd-modal-exif"></div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

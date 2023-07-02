@@ -1,0 +1,40 @@
+{{ define "main" }}
+  <div class="galleries">
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+      {{ with site.GetPage "galleries" }}
+        {{ $pages = .RegularPagesRecursive }}
+      {{ end }}
+    {{ end }}
+    {{ range $pages }}
+      {{ with partial "galleriesdeluxe/get-gallery.html" . }}
+        <div class="card">
+          <a href="{{ .page.RelPermalink }}">
+            <img
+              src="{{ .thumb.RelPermalink }}"
+              alt="{{ .thumb.Name }}"
+              class=""
+              width="{{ .thumb.Width }}"
+              height="{{ .thumb.Height }}" />
+          </a>
+          <div class="card-body">
+            <h3>
+              <a href="{{ .page.RelPermalink }}">{{ .page.LinkTitle }}</a>
+            </h3>
+            <p>
+              {{ .page.Summary }}
+            </p>
+            <div class="card-meta">
+              {{ with .page.Date }}
+                <div>
+                  {{ . | time.Format "January 2, 2006" }}
+                </div>
+              {{ end }}
+              <div>{{ .images | len }} {{ T "photo" ( .images | len) }}</div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

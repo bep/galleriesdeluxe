@@ -1,0 +1,171 @@
+@import "reset";
+
+/* Variables */
+$x: 1rem;
+$y: 1rem;
+
+/* Colors. */
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$color-primary: #3a98b9 !default;
+$color-secondary: #fff1dc !default;
+$color-text_dark: #333 !default;
+$color-text_light: #fff !default;
+$color-accent: #a2ff86 !default;
+
+$color-background: lighten($color-secondary, 60%) !default;
+
+$font-family-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif !default;
+
+$font-family-sans-serif: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+  "DejaVu Sans", source-sans-pro, sans-serif !default;
+
+$font-family-base: $font-family-sans-serif !default;
+
+@import "helpers";
+@import "markdown";
+
+html,
+body {
+  min-height: 90vh;
+}
+
+body {
+  font-family: $font-family-base;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: $black;
+  @include dc($color-background);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  fill: currentColor; /* Applies to SVG only */
+}
+
+footer {
+  @include dc($white);
+  border-top: 1px solid darken($color-secondary, 2%);
+  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+}
+
+ol,
+ul {
+  list-style: disc;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+  max-width: 140ch;
+  * {
+    width: 100%;
+  }
+}
+
+header {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 0.5rem;
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
+
+.galleries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 0.5rem;
+
+  a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: $color-primary;
+  }
+
+  .card {
+    padding: 2rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+
+    .card-body {
+      h3 {
+        font-size: 1.75rem;
+        margin: 1rem 0 0.75rem 0;
+      }
+      p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+      }
+
+      .card-meta {
+        margin-top: 1rem;
+        display: flex;
+        font-size: 0.85rem;
+        color: $gray-600;
+        &.card-meta > div {
+        }
+      }
+    }
+  }
+}

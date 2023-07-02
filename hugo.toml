@@ -1,0 +1,37 @@
+baseURL = "https://example.com"
+
+[author]
+    name = "Bjørn Erik Pedersen"
+
+[taxonomies]
+    category = 'categories'
+
+[caches]
+    [caches.images]
+        dir    = ':cacheDir/galleriesdeluxe'
+        maxAge = "4320h"                     # 6 months.
+
+[params]
+    [params.gallerydeluxe]
+        shuffle     = false
+        reverse     = true
+        enable_exif = false
+
+[module]
+    [[module.mounts]]
+        source = "assets"
+        target = "assets"
+    [[module.mounts]]
+        source = "layouts"
+        target = "layouts"
+    [[module.mounts]]
+        source = "content"
+        target = "content"
+    [[module.mounts]]
+        source = "i18n"
+        target = "i18n"
+    [[module.mounts]]
+        source = "static"
+        target = "static"
+    [[module.imports]]
+        path = "github.com/bep/gallerydeluxe"

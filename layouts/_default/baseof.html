@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {{ .Title }}
+    </title>
+    {{/* styles */}}
+    <style>
+      html {
+        font-size: 12px;
+      }
+    </style>
+
+    {{/* Load Bootstrap SCSS. */}}
+    {{ $options := dict "enableSourceMap" true "transpiler" "dartsass" }}
+    {{ if hugo.IsProduction }}
+      {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
+    {{ end }}
+    {{ $styles := resources.Get "scss/styles.scss" }}
+    {{ $styles = $styles | resources.ToCSS $options }}
+    {{ if hugo.IsProduction }}
+      {{ $styles = $styles | fingerprint }}
+    {{ end }}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+
+    {{/* Load Bootstrap JS. */}}
+    {{ $js := resources.Get "js/index.js" }}
+    {{ $params := dict }}
+    {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+    {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+    {{ $js = $js | js.Build $opts }}
+    {{ if hugo.IsProduction }}
+      {{ $js = $js | fingerprint }}
+    {{ end }}
+    <script
+      src="{{ $js.RelPermalink }}"
+      {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}
+      defer></script>
+
+    {{ partial "gallerydeluxe/head.html" . }}
+  </head>
+  <body>
+    {{ partial "galleriesdeluxe/header.html" . }}
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer>
+      {{ partial "galleriesdeluxe/footer.html" . }}
+    </footer>
+  </body>
+</html>

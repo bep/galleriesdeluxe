@@ -1,0 +1,36 @@
+<header>
+  <h1>{{ .Title }}</h1>
+  <div>
+    {{ if .IsHome }}
+      {{ $pages := slice (site.GetPage "categories") }}
+      {{ with site.GetPage "about" }}
+        {{ $pages = $pages | append . }}
+      {{ end }}
+      <ul>
+        {{ range $pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      {{ $categories := .GetTerms "categories" }}
+      <ul>
+        <li>
+          <a href="{{ site.Home.RelPermalink }}">{{ site.Home.LinkTitle }}</a>
+        </li>
+        {{ with .Parent }}
+          {{ if and (not .IsHome) (not .IsSection) }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+
+        {{ range $categories }}
+          <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</header>
