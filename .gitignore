@@ -1,4 +1,6 @@
 public/
-resources/
+
 .DS_Store
 .hugo_build.lock
+
+exampleSite/resources/_gen/images/
