@@ -9,29 +9,25 @@
     {{ range $pages }}
       {{ with partial "galleriesdeluxe/get-gallery.html" . }}
         <div class="card">
-          <a href="{{ .page.RelPermalink }}">
+          <a class="card-img" href="{{ .page.RelPermalink }}">
             <img
               src="{{ .thumb.RelPermalink }}"
               alt="{{ .thumb.Name }}"
               class=""
               width="{{ .thumb.Width }}"
               height="{{ .thumb.Height }}" />
+            <span class="num-photos"
+              >{{ .images | len }} {{ T "photo" ( .images | len) }}</span
+            >
           </a>
-          <div class="card-body">
-            <h3>
+
+          <div class="body">
+            <h2>
               <a href="{{ .page.RelPermalink }}">{{ .page.LinkTitle }}</a>
-            </h3>
+            </h2>
             <p>
               {{ .page.Summary }}
             </p>
-            <div class="card-meta">
-              {{ with .page.Date }}
-                <div>
-                  {{ . | time.Format "January 2, 2006" }}
-                </div>
-              {{ end }}
-              <div>{{ .images | len }} {{ T "photo" ( .images | len) }}</div>
-            </div>
           </div>
         </div>
       {{ end }}

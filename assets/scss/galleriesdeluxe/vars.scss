@@ -1,0 +1,26 @@
+/* Colors. */
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$color-primary: #3a98b9 !default;
+$color-secondary: #fff1dc !default;
+$color-text_dark: $black !default;
+$color-text_light: $white !default;
+$color-background: lighten($color-secondary, 60%) !default;
+$color-background-footer: $color-secondary !default;
+
+$font-family-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif !default;
+
+$font-family-sans-serif: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+  "DejaVu Sans", source-sans-pro, sans-serif !default;
+
+$font-family-base: $font-family-sans-serif !default;

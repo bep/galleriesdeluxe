@@ -32,3 +32,5 @@ baseURL = "https://example.com"
         target = "static"
     [[module.imports]]
         path = "github.com/bep/gallerydeluxe"
+    [[module.imports]]
+        path = "github.com/bep/hugo-mod-misc/common-partials"

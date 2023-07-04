@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.Language.LanguageCode }}">
   <head>
     <meta charset="utf-8" />
     <title>
       {{ .Title }}
     </title>
-    {{/* styles */}}
-    <style>
-      html {
-        font-size: 12px;
-      }
-    </style>
 
-    {{/* Load Bootstrap SCSS. */}}
+    <meta name="viewport" content="width=device-width,minimum-scale=1" />
+    {{ hugo.Generator }}
+
+    {{ if hugo.IsProduction }}
+      <meta name="robots" content="index, follow" />
+    {{ else }}
+      <meta name="robots" content="noindex, nofollow" />
+    {{ end }}
+
+    {{ range .AlternativeOutputFormats -}}
+      <link
+        rel="{{ .Rel }}"
+        type="{{ .MediaType.Type }}"
+        href="{{ .Permalink | safeURL }}" />
+    {{ end -}}
+
+    {{/* SEO. */}}
+    {{ partial "common-partials/head-seo.html" . }}
+
+    {{/* Load styles */}}
     {{ $options := dict "enableSourceMap" true "transpiler" "dartsass" }}
     {{ if hugo.IsProduction }}
       {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
     {{ end }}
-    {{ $styles := resources.Get "scss/styles.scss" }}
+    {{ $styles := resources.Get "scss/galleriesdeluxe/styles.scss" }}
     {{ $styles = $styles | resources.ToCSS $options }}
     {{ if hugo.IsProduction }}
       {{ $styles = $styles | fingerprint }}
     {{ end }}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 
-    {{/* Load Bootstrap JS. */}}
-    {{ $js := resources.Get "js/index.js" }}
+    {{/* Load JavaScript */}}
+    {{ $js := resources.Get "js/galleriesdeluxe/index.js" }}
     {{ $params := dict }}
     {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
     {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
@@ -38,7 +51,8 @@
       {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}
       defer></script>
 
-    {{ partial "gallerydeluxe/head.html" . }}
+    {{ block "head-custom" . }}{{ end }}
+
   </head>
   <body>
     {{ partial "galleriesdeluxe/header.html" . }}

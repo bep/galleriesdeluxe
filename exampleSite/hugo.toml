@@ -12,12 +12,17 @@ baseURL = "https://example.com"
         maxAge = "4320h"                     # 6 months.
 
 [params]
+    description = "A Hugo gallery website"
+
     [params.gallerydeluxe]
         shuffle     = false
         reverse     = true
         enable_exif = false
 
 [module]
+    [[module.mounts]]
+        source = "assets"
+        target = "assets"
     [[module.mounts]]
         source = "content"
         target = "content"

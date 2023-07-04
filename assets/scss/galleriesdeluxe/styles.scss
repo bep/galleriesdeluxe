@@ -1,37 +1,8 @@
+@use "hugo:vars" as v;
 @import "reset";
 
-/* Variables */
-$x: 1rem;
-$y: 1rem;
-
-/* Colors. */
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
-
-$color-primary: #3a98b9 !default;
-$color-secondary: #fff1dc !default;
-$color-text_dark: #333 !default;
-$color-text_light: #fff !default;
-$color-accent: #a2ff86 !default;
-
-$color-background: lighten($color-secondary, 60%) !default;
-
-$font-family-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif !default;
-
-$font-family-sans-serif: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
-  "DejaVu Sans", source-sans-pro, sans-serif !default;
-
-$font-family-base: $font-family-sans-serif !default;
-
+@import "vars-custom";
+@import "vars";
 @import "helpers";
 @import "markdown";
 
@@ -53,8 +24,9 @@ body {
 }
 
 footer {
-  @include dc($white);
-  border-top: 1px solid darken($color-secondary, 2%);
+  @include dc($color-background-footer);
+  box-shadow: 0 50vh 0 50vh $color-background-footer;
+  border-top: 1px solid darken($color-background-footer, 2%);
   margin-top: 3rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -68,6 +40,7 @@ footer {
 a {
   color: $color-primary;
   text-decoration: none;
+  font-weight: bold;
   &:hover {
     text-decoration: underline;
     opacity: 0.8;
@@ -87,7 +60,7 @@ main {
   margin: 0 auto;
   padding-bottom: 5rem;
   max-width: 140ch;
-  * {
+  & > * {
     width: 100%;
   }
 }
@@ -122,7 +95,7 @@ header {
 
   h1 {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 1rem;
   }
 }
@@ -134,38 +107,56 @@ header {
 
   a {
     text-decoration: none;
-    text-transform: capitalize;
     color: $color-primary;
   }
 
   .card {
     padding: 2rem;
 
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 0.75rem;
+    .card-img {
+      /* Overlay num-photos in the upper right corner of the image. */
+      display: block;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0.75rem;
+      }
+
+      .num-photos {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0.25rem;
+        color: $white;
+        font-size: 0.75rem;
+      }
     }
 
-    .card-body {
-      h3 {
-        font-size: 1.75rem;
-        margin: 1rem 0 0.75rem 0;
+    .body {
+      margin-left: 0.75rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 1rem 0 0.5rem 0;
       }
+
       p {
         font-size: 1.25rem;
         line-height: 1.5;
       }
-
-      .card-meta {
-        margin-top: 1rem;
-        display: flex;
-        font-size: 0.85rem;
-        color: $gray-600;
-        &.card-meta > div {
-        }
-      }
     }
   }
+}
+
+/* Utilities */
+
+.serif {
+  font-family: $font-family-serif;
 }

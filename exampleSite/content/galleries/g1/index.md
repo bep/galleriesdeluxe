@@ -1,5 +1,5 @@
 ---
-title: Birds in flight
+title: Birds in flight!
 categories: [travel,tech,foo,bar,baz]
 date: 2019-01-01
 ---
