@@ -4,3 +4,5 @@ github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704093825-0324b29fc581 
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704093825-0324b29fc581/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704102517-ce194ee16770 h1:fF16cczTlWC0sKkflkcp6eQmve0UAU9e+LhGP2w7jWI=
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704102517-ce194ee16770/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
+github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704103809-4f6830d6af54 h1:8YdKSwd7Ec97iuXldQAUXuCC4JqIUsAqZDRLzZSUJ8g=
+github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704103809-4f6830d6af54/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=

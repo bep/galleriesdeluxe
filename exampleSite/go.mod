@@ -7,5 +7,5 @@ replace github.com/bep/galleriesdeluxe => ../
 require (
 	github.com/bep/galleriesdeluxe v0.0.0-20230703155916-942ecbaaea2f // indirect
 	github.com/bep/gallerydeluxe v0.10.0 // indirect
-	github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704102517-ce194ee16770 // indirect
+	github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704103809-4f6830d6af54 // indirect
 )
