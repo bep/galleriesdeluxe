@@ -1,0 +1,12 @@
+
+name        = "Galleries Deluxe"
+license     = "MIT"
+licenselink = "https://github.com/bep/galleriesdeluxe/blob/main/LICENSE"
+description = "Multi gallery theme suitable for large galleries."
+homepage    = "https://github.com/bep/galleriesdeluxe"
+demosite    = "https://galleriesdeluxe.netlify.app/"
+tags        = ["Gallery", "Responsive"]
+min_version = "0.90.0"
+[author]
+  name     = "Bjørn Erik Pedersen"
+  homepage = "http://bep.is"

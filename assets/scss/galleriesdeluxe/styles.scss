@@ -30,11 +30,18 @@ footer {
   margin-top: 3rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+
+  & > div {
+    min-height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+    }
+  }
 }
 
 a {
@@ -159,4 +166,8 @@ header {
 
 .serif {
   font-family: $font-family-serif;
+}
+
+.mt {
+  margin-top: 1rem;
 }

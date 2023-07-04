@@ -1,1 +1,19 @@
-<div>All photos &copy; {{ .Site.Author.name }} {{ now.Year }}.</div>
+<div>
+  <div>
+    All photos &copy;
+    {{ with .Site.Author }}
+      {{ if and .name .email }}
+        <a href="mailto:{{ .email }}">{{ .name }}</a>
+      {{ else }}
+        {{ .name }}
+      {{ end }}
+    {{ end }}
+    {{ now.Year }}.
+  </div>
+  <div>
+    Powered by
+    <a class="mt" href="https://github.com/bep/galleriesdeluxe"
+      >Galleries Deluxe</a
+    >.
+  </div>
+</div>
