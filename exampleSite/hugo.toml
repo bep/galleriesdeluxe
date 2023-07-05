@@ -15,10 +15,14 @@ baseURL = "https://galleriesdeluxe.netlify.app/"
 [params]
     description = "A Hugo gallery website"
 
-    [params.gallerydeluxe]
-        shuffle     = false
-        reverse     = true
-        enable_exif = false
+    [params.galleriesdeluxe]
+        [params.galleriesdeluxe.sassvars]
+            color_background = "#1d1e2c"
+
+[params.gallerydeluxe]
+    shuffle     = false
+    reverse     = true
+    enable_exif = false
 
 [module]
     [[module.mounts]]

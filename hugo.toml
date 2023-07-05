@@ -18,6 +18,8 @@ baseURL = "https://example.com"
         enable_exif = false
 
 [module]
+    [module.hugoVersion]
+        min = "0.108.0"
     [[module.mounts]]
         source = "assets"
         target = "assets"

@@ -28,7 +28,8 @@
     {{ partial "common-partials/head-seo.html" . }}
 
     {{/* Load styles */}}
-    {{ $options := dict "enableSourceMap" true "transpiler" "dartsass" }}
+    {{ $vars := site.Params.galleriesdeluxe.sassvars | default dict }}
+    {{ $options := dict "enableSourceMap" true "transpiler" "dartsass" "vars" $vars }}
     {{ if hugo.IsProduction }}
       {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
     {{ end }}

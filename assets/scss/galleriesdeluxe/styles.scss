@@ -1,8 +1,10 @@
-@use "hugo:vars" as v;
 @import "reset";
 
+/* Import the vars in order of precedence: Hugo config first. */
+@import "hugo:vars";
 @import "vars-custom";
 @import "vars";
+
 @import "helpers";
 @import "markdown";
 
@@ -15,18 +17,18 @@ body {
   font-family: $font-family-base;
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: $font_size_base;
   color: $black;
-  @include dc($color-background);
+  @include dc($color_background);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   fill: currentColor; /* Applies to SVG only */
 }
 
 footer {
-  @include dc($color-background-footer);
-  box-shadow: 0 50vh 0 50vh $color-background-footer;
-  border-top: 1px solid darken($color-background-footer, 2%);
+  @include dc($color_background_footer);
+  box-shadow: 0 50vh 0 50vh $color_background_footer;
+  border-top: 1px solid darken($color_background_footer, 2%);
   margin-top: 3rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -38,14 +40,14 @@ footer {
     align-items: center;
     flex-direction: column;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint_md) {
       flex-direction: row;
     }
   }
 }
 
 a {
-  color: $color-primary;
+  color: $color_primary;
   text-decoration: none;
   font-weight: bold;
   &:hover {
@@ -114,7 +116,7 @@ header {
 
   a {
     text-decoration: none;
-    color: $color-primary;
+    color: $color_primary;
   }
 
   .card {
@@ -165,7 +167,7 @@ header {
 /* Utilities */
 
 .serif {
-  font-family: $font-family-serif;
+  font-family: $font_family_serif;
 }
 
 .mt {
