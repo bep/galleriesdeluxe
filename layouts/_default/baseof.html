@@ -29,7 +29,8 @@
 
     {{/* Load styles */}}
     {{ $vars := site.Params.galleriesdeluxe.sassvars | default dict }}
-    {{ $options := dict "enableSourceMap" true "transpiler" "dartsass" "vars" $vars }}
+    {{ $transpiler := site.Params.galleriesdeluxe.sass_transpiler | default "dartsass" }}}
+    {{ $options := dict "enableSourceMap" true "transpiler" $transpiler "vars" $vars }}
     {{ if hugo.IsProduction }}
       {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
     {{ end }}

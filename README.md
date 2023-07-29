@@ -8,6 +8,21 @@ This is built on top of and the plural version of [gallerydeluxe](https://github
 
 I will create a starter template for this theme later, but for now see the [exampleSite](./exampleSite) folder.
 
+## Pre-requisites
+
+You see [Dart Sass Installation](https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installation-overview).
+
+We're currently not using any of the new features in Dart Sass, so you can also use the old `libsass` embedded into the [extended Hugo version](https://gohugo.io/troubleshooting/faq/#i-get--this-feature-is-not-available-in-your-current-hugo-version) by setting the following in your `config.toml`:
+
+```toml
+[params]
+    [params.galleriesdeluxe]
+        # One of dartsass or libsass.
+        sass_transpiler = "libsass"
+```
+
+The default and recommended value is `dartsass`.
+
 ## Configuration
 
 See [vars.scss](https://github.com/bep/galleriesdeluxe/blob/main/assets/scss/galleriesdeluxe/vars.scss) for a list of Sass variables.
