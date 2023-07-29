@@ -10,9 +10,9 @@ I will create a starter template for this theme later, but for now see the [exam
 
 ## Pre-requisites
 
-You see [Dart Sass Installation](https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installation-overview).
+By default, you need [Dart Sass](https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installation-overview) installed to build a site using this theme.
 
-We're currently not using any of the new features in Dart Sass, so you can also use the old `libsass` embedded into the [extended Hugo version](https://gohugo.io/troubleshooting/faq/#i-get--this-feature-is-not-available-in-your-current-hugo-version) by setting the following in your `config.toml`:
+We're however currently not using any of the new features in Dart Sass, so you can also use the old `libsass` embedded into the [extended Hugo version](https://gohugo.io/troubleshooting/faq/#i-get--this-feature-is-not-available-in-your-current-hugo-version) by setting the following in your `config.toml`:
 
 ```toml
 [params]
