@@ -1,5 +1,5 @@
 
-name        = "Galleries Deluxe"
+name        = "Griffin Wirth's Photo Gallery"
 license     = "MIT"
 licenselink = "https://github.com/bep/galleriesdeluxe/blob/main/LICENSE"
 description = "Multi gallery theme suitable for large galleries."
@@ -8,5 +8,5 @@ demosite    = "https://galleriesdeluxe.netlify.app/"
 tags        = ["Gallery", "Responsive"]
 min_version = "0.90.0"
 [author]
-  name     = "Bjørn Erik Pedersen"
-  homepage = "http://bep.is"
+  name     = "Griffin Wirth"
+  homepage = "https://github.com/WirthG/Griffin-Wirth-Photo-Gallery"

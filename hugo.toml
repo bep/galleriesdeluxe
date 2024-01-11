@@ -1,7 +1,7 @@
 baseURL = "https://example.com"
 
 [author]
-    name = "Bjørn Erik Pedersen"
+    name = "Griffin Wirth"
 
 [taxonomies]
     category = 'categories'

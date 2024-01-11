@@ -1,8 +1,8 @@
 baseURL = "https://galleriesdeluxe.netlify.app/"
 
 [author]
-    name  = "Bjørn Erik Pedersen"
-    email = "bjorn.erik.pedersen@gmail.com"
+    name  = "Griffin Wirth"
+    email = "griffiniwirth@gmail.com"
 
 [taxonomies]
     category = 'categories'
