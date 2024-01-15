@@ -1,7 +1,7 @@
 <div>
   <div>
     All photos &copy;
-    {{ with .Site.Author }}
+    {{ with site.Params.author }}
       {{ if and .name .email }}
         <a href="mailto:{{ .email }}">{{ .name }}</a>
       {{ else }}

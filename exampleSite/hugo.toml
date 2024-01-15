@@ -1,9 +1,5 @@
 baseURL = "https://galleriesdeluxe.netlify.app/"
 
-[author]
-    name  = "Bjørn Erik Pedersen"
-    email = "bjorn.erik.pedersen@gmail.com"
-
 [taxonomies]
     category = 'categories'
 
@@ -13,7 +9,10 @@ baseURL = "https://galleriesdeluxe.netlify.app/"
         maxAge = "4320h"                     # 6 months.
 
 [params]
-    description = "A Hugo gallery website"
+    [params.author]
+        name        = "Bjørn Erik Pedersen"
+        email       = "bjorn.erik.pedersen@gmail.com"
+        description = "A Hugo gallery website"
 
     [params.galleriesdeluxe]
         # One of dartsass or libsass.
