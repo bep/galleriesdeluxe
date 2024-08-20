@@ -3,16 +3,10 @@
     command = "./hugo-ci.sh --gc -s exampleSite --minify"
 
     [build.environment]
-        HUGO_VERSION = "0.115.1"
+        HUGO_VERSION = "0.133.0"
 
 [context.deploy-preview]
     command = "./hugo-ci.sh -s exampleSite --minify -D -F -b $DEPLOY_PRIME_URL"
 
-    [context.deploy-preview.environment]
-        HUGO_VERSION = "0.115.1"
-
 [context.branch-deploy]
     command = "./hugo-ci.sh -s exampleSite --minify --gc -b $DEPLOY_PRIME_URL"
-
-    [context.branch-deploy.environment]
-        HUGO_VERSION = "0.115.1"
