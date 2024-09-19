@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export DART_SASS_VERSION=1.63.5
+export DART_SASS_VERSION=1.79.1
 
 
 curl -LJO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
