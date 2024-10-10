@@ -6,7 +6,7 @@ description = "Multi gallery theme suitable for large galleries."
 homepage    = "https://github.com/bep/galleriesdeluxe"
 demosite    = "https://galleriesdeluxe.netlify.app/"
 tags        = ["Gallery", "Responsive"]
-min_version = "0.90.0"
+min_version = "0.129.0"
 [author]
   name     = "Bjørn Erik Pedersen"
   homepage = "http://bep.is"

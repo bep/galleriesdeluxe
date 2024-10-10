@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.Language.LanguageCode }}">
   <head>
     <meta charset="utf-8" />
@@ -35,7 +35,7 @@
       {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
     {{ end }}
     {{ $styles := resources.Get "scss/galleriesdeluxe/styles.scss" }}
-    {{ $styles = $styles | resources.ToCSS $options }}
+    {{ $styles = $styles | css.Sass $options }}
     {{ if hugo.IsProduction }}
       {{ $styles = $styles | fingerprint }}
     {{ end }}
