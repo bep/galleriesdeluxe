@@ -5,7 +5,7 @@ licenselink = "https://github.com/bep/galleriesdeluxe/blob/main/LICENSE"
 description = "Multi gallery theme suitable for large galleries."
 homepage    = "https://github.com/bep/galleriesdeluxe"
 demosite    = "https://galleriesdeluxe.netlify.app/"
-tags        = ["Gallery", "Responsive"]
+tags        = ["gallery", "sass"]
 min_version = "0.129.0"
 [author]
   name     = "Bjørn Erik Pedersen"
