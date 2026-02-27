@@ -31,3 +31,11 @@ These can be overriden either in order of presedence:
 
 1. The [Hugo config](https://github.com/bep/galleriesdeluxe/blob/9e3c68776ba534601c33bb644a4ba348f519e002/exampleSite/hugo.toml#L18)
 2. Adding a [assets/scss/galleriesdeluxe/vars-custom.scss](https://github.com/bep/galleriesdeluxe/blob/main/exampleSite/assets/scss/galleriesdeluxe/vars-custom.scss) file to your project.
+
+## Don't want category navigation?
+
+Add this to your `hugo.toml`:
+
+```toml
+disableKinds = ["taxonomy", "term"]
+```
