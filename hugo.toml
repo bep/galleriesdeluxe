@@ -19,7 +19,7 @@ baseURL = "https://example.com"
 
 [module]
     [module.hugoVersion]
-        min = "0.108.0"
+        min = "0.160.0"
     [[module.mounts]]
         source = "assets"
         target = "assets"

@@ -1,0 +1,20 @@
+:root {
+  /* Colors. */
+  --white: #fff;
+  --black: #000;
+
+  --color-primary: #3a98b9;
+  --color-secondary: #fff1dc;
+  --color-text: #000;
+  --color-text-footer: #000;
+  --color-background: #fff;
+  --color-background-footer: #fff1dc;
+
+  /* Fonts. */
+  --font-family-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria,
+    serif;
+  --font-family-sans-serif: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+    "DejaVu Sans", source-sans-pro, sans-serif;
+  --font-family-base: var(--font-family-sans-serif);
+  --font-size-base: 16px;
+}
