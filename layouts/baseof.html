@@ -28,14 +28,10 @@
     {{ partial "common-partials/head-seo.html" . }}
 
     {{/* Load styles */}}
-    {{ $vars := site.Params.galleriesdeluxe.sassvars | default dict }}
-    {{ $transpiler := site.Params.galleriesdeluxe.sass_transpiler | default "dartsass" }}
-    {{ $options := dict "enableSourceMap" true "transpiler" $transpiler "vars" $vars }}
-    {{ if hugo.IsProduction }}
-      {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
-    {{ end }}
-    {{ $styles := resources.Get "scss/galleriesdeluxe/styles.scss" }}
-    {{ $styles = $styles | css.Sass $options }}
+    {{ $vars := site.Params.galleriesdeluxe.cssvars | default dict }}
+    {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
+    {{ $options := dict "vars" $vars "target" $target "minify" (not hugo.IsDevelopment) }}
+    {{ $styles := resources.Get "css/galleriesdeluxe/styles.css" | css.Build $options }}
     {{ if hugo.IsProduction }}
       {{ $styles = $styles | fingerprint }}
     {{ end }}
@@ -56,6 +52,16 @@
       defer></script>
 
     {{ block "head-custom" . }}{{ end }}
+
+    {{ if .IsHome }}
+      {{ $migrationLink := "https://github.com/bep/galleriesdeluxe#sass-was-replaced-with-css-in-v060" }}
+      {{ if site.Params.galleriesdeluxe.sassvars }}
+        {{ errorf "galleriesdeluxe: params.galleriesdeluxe.sassvars is removed. See %s" $migrationLink }}
+      {{ end }}
+      {{ if resources.Get "scss/galleriesdeluxe/vars-custom.scss" }}
+        {{ errorf "galleriesdeluxe: assets/scss/galleriesdeluxe/vars-custom.scss is no longer used. See %s" $migrationLink }}
+      {{ end }}
+    {{ end }}
 
   </head>
   <body>

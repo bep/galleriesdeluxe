@@ -1,9 +1,0 @@
-/* Override any SCSS variable here. */
-
-/* $color-background is also defined in site config (params.galleriesdeluxe.sassvars), which will win. */
-$color-background: #fff !default;
-$color-background-footer: darken($color-background, 1%) !default;
-
-/* Set the primary and secondary color to contrast and fit with that background. */
-$color-primary: #fbb7c0 !default;
-$color-secondary: #b6244f !default;
