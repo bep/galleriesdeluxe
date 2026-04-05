@@ -8,26 +8,29 @@ This is built on top of and the plural version of [gallerydeluxe](https://github
 
 I will create a starter template for this theme later, but for now see the [exampleSite](./exampleSite) folder.
 
-## Pre-requisites
-
-By default, you need [Dart Sass](https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installation-overview) installed to build a site using this theme.
-
-We're however currently not using any of the new features in Dart Sass, so you can also use the old `libsass` embedded into the [extended Hugo version](https://gohugo.io/troubleshooting/faq/#i-get--this-feature-is-not-available-in-your-current-hugo-version) by setting the following in your `config.toml`:
-
-```toml
-[params]
-    [params.galleriesdeluxe]
-        # One of dartsass or libsass.
-        sass_transpiler = "libsass"
-```
-
-The default and recommended value is `dartsass`.
-
 ## Configuration
 
-See [vars.scss](https://github.com/bep/galleriesdeluxe/blob/main/assets/scss/galleriesdeluxe/vars.scss) for a list of Sass variables.
+See [vars.css](https://github.com/bep/galleriesdeluxe/blob/main/assets/css/galleriesdeluxe/vars.css) for a list of CSS custom properties.
 
-These can be overriden either in order of presedence:
+These can be overridden either via Hugo config or by adding a CSS file to your project:
 
-1. The [Hugo config](https://github.com/bep/galleriesdeluxe/blob/9e3c68776ba534601c33bb644a4ba348f519e002/exampleSite/hugo.toml#L18)
-2. Adding a [assets/scss/galleriesdeluxe/vars-custom.scss](https://github.com/bep/galleriesdeluxe/blob/main/exampleSite/assets/scss/galleriesdeluxe/vars-custom.scss) file to your project.
+1. In your Hugo config via `params.galleriesdeluxe.cssvars` (highest priority):
+
+```toml
+[params.galleriesdeluxe]
+    [params.galleriesdeluxe.cssvars]
+        color-background = "#1d1e2c"
+```
+
+2. By adding a [assets/css/galleriesdeluxe/vars-custom.css](https://github.com/bep/galleriesdeluxe/blob/main/exampleSite/assets/css/galleriesdeluxe/vars-custom.css) file to your project.
+
+## Sass was replaced with CSS in v0.6.0
+
+Starting with v0.6.0, this theme uses plain CSS with [css.Build](https://gohugo.io/functions/css/build/) instead of Sass. Dart Sass is no longer required.
+
+If you have customized the theme, you need to migrate:
+
+1. Rename your `assets/scss/galleriesdeluxe/vars-custom.scss` to `assets/css/galleriesdeluxe/vars-custom.css`.
+2. Convert Sass variables to CSS custom properties, e.g. `$color-primary: #3a98b9 !default;` becomes `--color-primary: #3a98b9;` inside a `:root {}` block.
+3. Rename `params.galleriesdeluxe.sassvars` to `params.galleriesdeluxe.cssvars` and remove `params.galleriesdeluxe.sass_transpiler` from your Hugo config. Note that the variable names are now CSS custom property names (e.g. `color-background` instead of `color_background`).
+4. If you relied on the automatic light/dark text color (the old `dc` mixin), set `--color-text` and `--color-text-footer` explicitly in your `vars-custom.css`.

@@ -15,10 +15,8 @@ baseURL = "https://galleriesdeluxe.netlify.app/"
         description = "A Hugo gallery website"
 
     [params.galleriesdeluxe]
-        # One of dartsass or libsass.
-        sass_transpiler = "dartsass"
-        [params.galleriesdeluxe.sassvars]
-            color_background = "#1d1e2c"
+        [params.galleriesdeluxe.cssvars]
+            color-background = "#1d1e2c"
 
 [params.gallerydeluxe]
     shuffle     = false

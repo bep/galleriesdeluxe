@@ -28,14 +28,12 @@
     {{ partial "common-partials/head-seo.html" . }}
 
     {{/* Load styles */}}
-    {{ $vars := site.Params.galleriesdeluxe.sassvars | default dict }}
-    {{ $transpiler := site.Params.galleriesdeluxe.sass_transpiler | default "dartsass" }}
-    {{ $options := dict "enableSourceMap" true "transpiler" $transpiler "vars" $vars }}
+    {{ $vars := site.Params.galleriesdeluxe.cssvars | default dict }}
+    {{ $options := dict "inlineImports" true "vars" $vars }}
     {{ if hugo.IsProduction }}
-      {{ $options = $options | merge (dict "enableSourceMap" false "outputStyle" "compressed") }}
+      {{ $options = $options | merge (dict "minify" true) }}
     {{ end }}
-    {{ $styles := resources.Get "scss/galleriesdeluxe/styles.scss" }}
-    {{ $styles = $styles | css.Sass $options }}
+    {{ $styles := resources.Get "css/galleriesdeluxe/styles.css" | css.Build $options }}
     {{ if hugo.IsProduction }}
       {{ $styles = $styles | fingerprint }}
     {{ end }}
@@ -56,6 +54,16 @@
       defer></script>
 
     {{ block "head-custom" . }}{{ end }}
+
+    {{ if .IsHome }}
+      {{ $migrationLink := "https://github.com/bep/galleriesdeluxe#sass-was-replaced-with-css-in-v060" }}
+      {{ with site.Params.galleriesdeluxe.sassvars }}
+        {{ errorf "galleriesdeluxe: params.galleriesdeluxe.sassvars is removed. See %s" $migrationLink }}
+      {{ end }}
+      {{ with resources.Get "scss/galleriesdeluxe/vars-custom.scss" }}
+        {{ errorf "galleriesdeluxe: assets/scss/galleriesdeluxe/vars-custom.scss is no longer used. See %s" $migrationLink }}
+      {{ end }}
+    {{ end }}
 
   </head>
   <body>
