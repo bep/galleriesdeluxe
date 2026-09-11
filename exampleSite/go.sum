@@ -4,6 +4,8 @@ github.com/bep/gallerydeluxe v0.12.0 h1:Sb6I9WYitsNdgHyS8xxTLUzNpSrUeE9Ihwh1RGmg
 github.com/bep/gallerydeluxe v0.12.0/go.mod h1:sUfRcjREo6DwxPo0sMp0TAxNZiGreOY6DY2dWGpSeR8=
 github.com/bep/gallerydeluxe v0.13.0 h1:WN1frUKbDlkecpZEWbAhxBHVaRPqiBhj764HG1rHLc4=
 github.com/bep/gallerydeluxe v0.13.0/go.mod h1:sUfRcjREo6DwxPo0sMp0TAxNZiGreOY6DY2dWGpSeR8=
+github.com/bep/gallerydeluxe v0.15.0 h1:3ixBVbQ3HTFe4Z6lL/A0ynlPMOqrko8qCERmexEU/W8=
+github.com/bep/gallerydeluxe v0.15.0/go.mod h1:sUfRcjREo6DwxPo0sMp0TAxNZiGreOY6DY2dWGpSeR8=
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704093825-0324b29fc581 h1:jC5eaVLYbNgoWRoufZY4DaP+nCPfE07nmAMKN0Bsqhk=
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704093825-0324b29fc581/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704102517-ce194ee16770 h1:fF16cczTlWC0sKkflkcp6eQmve0UAU9e+LhGP2w7jWI=
@@ -14,3 +16,5 @@ github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704170958-135885e57221 
 github.com/bep/hugo-mod-misc/common-partials v0.0.0-20230704170958-135885e57221/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
 github.com/bep/hugo-mod-misc/common-partials v0.1.0 h1:SiGnrf9MW1aFczXpXPTDpsGr3SvimIaBXMpZucPxT+g=
 github.com/bep/hugo-mod-misc/common-partials v0.1.0/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
+github.com/bep/hugo-mod-misc/common-partials v0.2.0 h1:BzWVSQ5oXLUfK0pNi0xldZ9oFnGujTdQmg8fWSPigbI=
+github.com/bep/hugo-mod-misc/common-partials v0.2.0/go.mod h1:lw2586uqPfye9yTYgSyvZwU3dfpZcjDXmIOJeR4D6O0=
