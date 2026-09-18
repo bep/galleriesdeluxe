@@ -2,22 +2,22 @@
 
 {{ $images := slice }}
 {{ if eq .Kind "term" }}
-  {{ range .Pages }}
-    {{ $images = $images | append (.Resources.ByType "image") }}
-  {{ end }}
+	{{ range .Pages }}
+		{{ $images = $images | append (.Resources.ByType "image") }}
+	{{ end }}
 {{ else }}
-  {{ $images = (.Resources.ByType "image") }}
+	{{ $images = (.Resources.ByType "image") }}
 {{ end }}
 
 {{ with $images }}
-  {{ $id := $.RelPermalink | hash.FNV32a }}
-  {{ $idx :=  mod $id (len $images) }}
-  {{ $first := index $images $idx }}
-  {{ $thumb := $first.Fill "400x264 smart" }}
-  {{ $gallery = dict
-    "page" $
-    "images" $images
-    "thumb" $thumb
-  }}
+	{{ $id := $.RelPermalink | hash.FNV32a }}
+	{{ $idx := mod $id (len $images) }}
+	{{ $first := index $images $idx }}
+	{{ $thumb := $first.Fill "400x264 smart" }}
+	{{ $gallery = dict
+		"page" $
+		"images" $images
+		"thumb" $thumb
+	}}
 {{ end }}
 {{ return $gallery }}

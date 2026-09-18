@@ -1,76 +1,76 @@
 <!doctype html>
 <html lang="{{ site.Language.Locale }}">
-  <head>
-    <meta charset="utf-8" />
-    <title>
-      {{ .Title }}
-    </title>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			{{ .Title }}
+		</title>
 
-    <link rel="icon" href="{{ `favicon.svg` | relURL }}" type="image/svg+xml" />
+		<link rel="icon" href="{{ `favicon.svg` | relURL }}" type="image/svg+xml" />
 
-    <meta name="viewport" content="width=device-width,minimum-scale=1" />
-    {{ hugo.Generator }}
+		<meta name="viewport" content="width=device-width,minimum-scale=1" />
+		{{ hugo.Generator }}
 
-    {{ if hugo.IsProduction }}
-      <meta name="robots" content="index, follow" />
-    {{ else }}
-      <meta name="robots" content="noindex, nofollow" />
-    {{ end }}
+		{{ if hugo.IsProduction }}
+			<meta name="robots" content="index, follow" />
+		{{ else }}
+			<meta name="robots" content="noindex, nofollow" />
+		{{ end }}
 
-    {{ range .AlternativeOutputFormats -}}
-      <link
-        rel="{{ .Rel }}"
-        type="{{ .MediaType.Type }}"
-        href="{{ .Permalink | safeURL }}" />
-    {{ end -}}
+		{{ range .AlternativeOutputFormats -}}
+			<link
+				rel="{{ .Rel }}"
+				type="{{ .MediaType.Type }}"
+				href="{{ .Permalink | safeURL }}" />
+		{{ end -}}
 
-    {{/* SEO. */}}
-    {{ partial "common-partials/head-seo.html" . }}
+		{{/* SEO. */}}
+		{{ partial "common-partials/head-seo.html" . }}
 
-    {{/* Load styles */}}
-    {{ $vars := site.Params.galleriesdeluxe.cssvars | default dict }}
-    {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
-    {{ $options := dict "vars" $vars "target" $target "minify" (not hugo.IsDevelopment) }}
-    {{ $styles := resources.Get "css/galleriesdeluxe/styles.css" | css.Build $options }}
-    {{ if hugo.IsProduction }}
-      {{ $styles = $styles | fingerprint }}
-    {{ end }}
-    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+		{{/* Load styles */}}
+		{{ $vars := site.Params.galleriesdeluxe.cssvars | default dict }}
+		{{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
+		{{ $options := dict "vars" $vars "target" $target "minify" (not hugo.IsDevelopment) }}
+		{{ $styles := resources.Get "css/galleriesdeluxe/styles.css" | css.Build $options }}
+		{{ if hugo.IsProduction }}
+			{{ $styles = $styles | fingerprint }}
+		{{ end }}
+		<link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 
-    {{/* Load JavaScript */}}
-    {{ $js := resources.Get "js/galleriesdeluxe/index.js" }}
-    {{ $params := dict }}
-    {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
-    {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
-    {{ $js = $js | js.Build $opts }}
-    {{ if hugo.IsProduction }}
-      {{ $js = $js | fingerprint }}
-    {{ end }}
+		{{/* Load JavaScript */}}
+		{{ $js := resources.Get "js/galleriesdeluxe/index.js" }}
+		{{ $params := dict }}
+		{{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+		{{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+		{{ $js = $js | js.Build $opts }}
+		{{ if hugo.IsProduction }}
+			{{ $js = $js | fingerprint }}
+		{{ end }}
     <script
-      src="{{ $js.RelPermalink }}"
-      {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}
-      defer></script>
+			src="{{ $js.RelPermalink }}"
+			{{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}
+			defer></script>
 
-    {{ block "head-custom" . }}{{ end }}
+		{{ block "head-custom" . }}{{ end }}
 
-    {{ if .IsHome }}
-      {{ $migrationLink := "https://github.com/bep/galleriesdeluxe#sass-was-replaced-with-css-in-v060" }}
-      {{ if site.Params.galleriesdeluxe.sassvars }}
-        {{ errorf "galleriesdeluxe: params.galleriesdeluxe.sassvars is removed. See %s" $migrationLink }}
-      {{ end }}
-      {{ if resources.Get "scss/galleriesdeluxe/vars-custom.scss" }}
-        {{ errorf "galleriesdeluxe: assets/scss/galleriesdeluxe/vars-custom.scss is no longer used. See %s" $migrationLink }}
-      {{ end }}
-    {{ end }}
+		{{ if .IsHome }}
+			{{ $migrationLink := "https://github.com/bep/galleriesdeluxe#sass-was-replaced-with-css-in-v060" }}
+			{{ if site.Params.galleriesdeluxe.sassvars }}
+				{{ errorf "galleriesdeluxe: params.galleriesdeluxe.sassvars is removed. See %s" $migrationLink }}
+			{{ end }}
+			{{ if resources.Get "scss/galleriesdeluxe/vars-custom.scss" }}
+				{{ errorf "galleriesdeluxe: assets/scss/galleriesdeluxe/vars-custom.scss is no longer used. See %s" $migrationLink }}
+			{{ end }}
+		{{ end }}
 
-  </head>
-  <body>
-    {{ partial "galleriesdeluxe/header.html" . }}
-    <main>
-      {{ block "main" . }}{{ end }}
-    </main>
-    <footer>
-      {{ partial "galleriesdeluxe/footer.html" . }}
-    </footer>
-  </body>
+	</head>
+	<body>
+		{{ partial "galleriesdeluxe/header.html" . }}
+		<main>
+			{{ block "main" . }}{{ end }}
+		</main>
+		<footer>
+			{{ partial "galleriesdeluxe/footer.html" . }}
+		</footer>
+	</body>
 </html>
